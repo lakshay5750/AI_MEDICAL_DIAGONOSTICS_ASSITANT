@@ -11,7 +11,7 @@ if st.button("Submit"):
     
     try:
         response = requests.post(
-            "http://localhost:8005/diagnostics/invoke",
+            "https://ai-medical-diagonostics-assitant-3.onrender.com/diagnostics/invoke",
              json={
                 "input": {
                     "input": symptoms_input,
