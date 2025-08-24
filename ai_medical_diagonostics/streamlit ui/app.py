@@ -1,0 +1,36 @@
+import streamlit as st
+import requests
+
+st.title("AI Medical Diagnostics")
+st.write("Welcome to the AI Medical Diagnostics application!")
+st.text("Please enter your symptoms below:")
+symptoms_input = st.text_area("Symptoms")
+
+if st.button("Submit"):
+    
+    
+    try:
+        response = requests.post(
+            "http://localhost:8005/diagnostics/invoke",
+             json={
+                "input": {
+                    "input": symptoms_input,
+                    "symptoms": "",
+                    "diagnosis": "",
+                    "dietary_recommendations": ""
+                }
+            },  # ✅ send the full object
+            headers={"Content-Type": "application/json"}
+        )
+        data = response.json()
+        st.write("Debug raw json: ", data)
+        st.subheader("Detected Symptoms:")
+        st.write(data.get("symptoms", "N/A"))
+        st.subheader("Diagnosis:")
+        st.write(data.get("diagnosis", "N/A"))
+        st.subheader("Dietary Recommendations:")
+        st.write(data.get("dietary_recommendations", "N/A"))
+    except Exception as e:
+        st.write("Error occurred: ", e)
+
+        
