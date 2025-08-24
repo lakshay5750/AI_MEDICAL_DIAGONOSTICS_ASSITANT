@@ -1,7 +1,7 @@
 
 import requests
 
-EURI_API_KEY = "euri-12bfc7d1e9278bcce9417af8c8fa3a6fd5c727d7e780af659a1caeec49cd7c24"##give your api key
+EURI_API_KEY = "euri-12bfc7d1e9278bcce9417af8c8fa3a6fd5c727d7e780af659a1caeec49cd7c24"##give your
 
 def generate_completion(user_input):
     """
@@ -42,8 +42,5 @@ def generate_completion(user_input):
         return "No valid response from API"
 
 # Example usage
-user_input = input("Enter your prompt: ")
-output = generate_completion(user_input)
-print("Model response:", output)
 
 
