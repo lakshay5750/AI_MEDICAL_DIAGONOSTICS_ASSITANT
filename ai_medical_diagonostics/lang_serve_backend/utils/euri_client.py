@@ -1,7 +1,7 @@
 
 import requests
 
-EURI_API_KEY = "euri-12bfc7d1e9278bcce9417af8c8fa3a6fd5c727d7e780af659a1caeec49cd7c24"##give your
+EURI_API_KEY = "euri-972d12b755d9658ccdf6644f8c902ed342a52a248cb0050255879d11470a734a"##give your
 
 def generate_completion(user_input):
     """

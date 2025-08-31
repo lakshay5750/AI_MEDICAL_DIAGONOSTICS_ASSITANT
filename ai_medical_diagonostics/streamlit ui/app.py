@@ -22,6 +22,7 @@ if st.button("Submit"):
             },  # ✅ send the full object
             headers={"Content-Type": "application/json"}
         )
+        response.raise_for_status()  # Raise an error for HTTP errors
         data = response.json()
         st.write("Debug raw json: ", data)
         st.subheader("Detected Symptoms:")
