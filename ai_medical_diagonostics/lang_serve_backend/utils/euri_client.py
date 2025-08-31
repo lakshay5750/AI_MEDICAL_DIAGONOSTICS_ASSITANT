@@ -1,7 +1,11 @@
-
+import os
 import requests
+from dotenv import load_dotenv
 
-EURI_API_KEY = "euri-972d12b755d9658ccdf6644f8c902ed342a52a248cb0050255879d11470a734a"##give your
+load_dotenv()  # Load variables from .env
+
+EURI_API_KEY = os.getenv("EURI_API_KEY")
+EURI_API_URL = os.getenv("EURI_API_URL", "https://api.euron.one/api/v1/euri/chat/completions")
 
 def generate_completion(user_input):
     """
@@ -17,7 +21,7 @@ def generate_completion(user_input):
     if not user_input:
         return "Input is empty"
 
-    url = "https://api.euron.one/api/v1/euri/chat/completions"
+    url = EURI_API_URL
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {EURI_API_KEY}"

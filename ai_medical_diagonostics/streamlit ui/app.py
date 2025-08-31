@@ -24,6 +24,10 @@ if st.button("Submit"):
         )
         response.raise_for_status()  # Raise an error for HTTP errors
         data = response.json()
+        st.write(response.status_code)
+        st.write(response.text)
+        st.write(response.json()) 
+        st.write("Raw JSON from backend:", data)
         st.write("Debug raw json: ", data)
         st.subheader("Detected Symptoms:")
         st.write(data.get("symptoms", "N/A"))
